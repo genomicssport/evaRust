@@ -2,6 +2,8 @@
 
 ![](https://github.com/IBCHgenomic/eVaiutilities/blob/main/logo.png)
 
+![](https://github.com/codebiogenomics/evaRust/blob/main/evaRUST.png)
+
 - rust desktop client for human and mouse variant search.
 - faster search indexes for variant for human genomics [Eva](https://www.ebi.ac.uk/eva/).
 
