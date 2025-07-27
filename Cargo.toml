@@ -6,3 +6,7 @@ edition = "2024"
 [dependencies]
 async-std = "1.13.1"
 clap = { version = "4.5.41", features = ["derive"] }
+eframe = "0.32.0"
+egui = "0.32.0"
+tauri = "2.7.0"
+tauri-cli = "2.7.1"
