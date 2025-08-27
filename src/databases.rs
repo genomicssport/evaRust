@@ -1,8 +1,8 @@
-use std::process::*;
-use std::fs;
-use std::path::Path;
 use std::env;
 use std::error::Error;
+use std::fs;
+use std::path::Path;
+use std::process::*;
 
 /*
 Author Gaurav Sablok
@@ -12,8 +12,9 @@ ul. Noskowskiego 12/14 | 61-704, Poznań
 Date: 2025-7-23
 */
 
-pub fn databasedownload(optionread: Option<bool>) -> Result<String, Box<dyn Error>> {
-          if optionread.unwrap() == true {
+#[tokio::main]
+pub async fn databasedownload(optionread: Option<bool>) -> Result<String, Box<dyn Error>> {
+    if optionread.unwrap() == true {
         let _ = fs::create_dir("./download").unwrap();
         let newpath = Path::new("./download");
         let _ = env::set_current_dir(newpath);

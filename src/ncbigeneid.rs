@@ -3,7 +3,6 @@ use crate::structfile::ClinVarInfo;
 use crate::structfile::ClinVarOMIM;
 use crate::structfile::NCBIgene;
 use crate::structfile::NCBIgeneMerged;
-use rayon::prelude::*;
 use std::error::Error;
 use std::io::{BufRead, BufReader};
 
@@ -15,7 +14,8 @@ ul. Noskowskiego 12/14 | 61-704, Poznań
 Date: 2025-7-23
 */
 
-pub fn ncbiannotate(
+#[tokio::main]
+pub async fn ncbiannotate(
     pathncbi: &str,
     clinvar: &str,
     medgenomim: &str,

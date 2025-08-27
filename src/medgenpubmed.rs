@@ -1,5 +1,4 @@
 use crate::structfile::MedgenPubMed;
-use rayon::prelude::*;
 use std::error::Error;
 use std::io::{BufRead, BufReader};
 
@@ -11,7 +10,8 @@ ul. Noskowskiego 12/14 | 61-704, Poznań
 Date: 2025-7-23
 */
 
-pub fn medgenpubmedmap(pubmedstring: &str) -> Result<Vec<MedgenPubMed>, Box<dyn Error>> {
+#[tokio::main]
+pub async fn medgenpubmedmap(pubmedstring: &str) -> Result<Vec<MedgenPubMed>, Box<dyn Error>> {
     let fileopen = std::fs::File::open(pubmedstring).expect("file not found");
     let fileread = BufReader::new(fileopen);
     let returnvector: Vec<Vec<_>> = fileread

@@ -3,9 +3,8 @@ use crate::medgenhpo::medgenhpomap;
 use crate::structfile::ClinVar;
 use crate::structfile::ClinVarInfo;
 use crate::structfile::ClinVarOMIM;
-use crate::structfile::MedgenHPO;
 use crate::structfile::HPOOMIM;
-use rayon::prelude::*;
+use crate::structfile::MedgenHPO;
 use std::error::Error;
 use std::io::{BufRead, BufReader};
 
@@ -17,7 +16,8 @@ ul. Noskowskiego 12/14 | 61-704, Poznań
 Date: 2025-7-23
 */
 
-pub fn clinvarmapper(
+#[tokio::main]
+pub async fn clinvarmapper(
     clinvar: &str,
     medgenomim: &str,
     medgenhpo: &str,

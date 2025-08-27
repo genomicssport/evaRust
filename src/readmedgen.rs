@@ -10,7 +10,8 @@ ul. Noskowskiego 12/14 | 61-704, Poznań
 Date: 2025-7-23
 */
 
-pub fn medgenmapmap(pubmedstring: &str) -> Result<Vec<MedgenMap>, Box<dyn Error>> {
+#[tokio::main]
+pub async fn medgenmapmap(pubmedstring: &str) -> Result<Vec<MedgenMap>, Box<dyn Error>> {
     let fileopen = std::fs::File::open(pubmedstring).expect("file not found");
     let fileread = BufReader::new(fileopen);
     let returnvector: Vec<Vec<_>> = fileread

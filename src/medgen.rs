@@ -12,7 +12,8 @@ ul. Noskowskiego 12/14 | 61-704, Poznań
 Date: 2025-7-23
 */
 
-pub fn cuiparallel(
+#[tokio::main]
+pub async fn cuiparallel(
     medgenhpo: &str,
     medgen_omim: &str,
     medgenmapping: &str,

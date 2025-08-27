@@ -2,6 +2,7 @@ mod annotation;
 mod args;
 mod clinicvar;
 mod clinvarlinker;
+mod databases;
 mod hpoomim;
 mod medgen;
 mod medgenhpo;
@@ -11,18 +12,17 @@ mod omim;
 mod phenotype;
 mod readmedgen;
 mod structfile;
-mod databases;
 mod unifiedannotator;
 use crate::annotation::ontologyannotate;
 use crate::args::CommandParse;
 use crate::args::Commands;
 use crate::clinicvar::clinvarmapper;
 use crate::clinvarlinker::clinvarvcf;
+use crate::databases::databasedownload;
 use crate::medgen::cuiparallel;
 use crate::ncbigeneid::ncbiannotate;
 use crate::omim::omimevidence;
 use crate::phenotype::phenotypeall;
-use crate::databases::databasedownload;
 use clap::Parser;
 
 /*
@@ -34,6 +34,10 @@ Date: 2025-7-23
 */
 
 fn main() {
+    let standard_font = FIGfont::standard().unwrap();
+    let figure = standard_font.convert("eVARUST");
+    assert!(figure.is_some());
+    println!("{}", figure.unwrap());
     let argsparse = CommandParse::parse();
     match &argsparse.command {
         Commands::CUIGENERATE {
@@ -100,9 +104,12 @@ fn main() {
                 phenotypeall(genesdisease, genesphenotype, phenotypehpoa, phenotypesgenes).unwrap();
             println!("The command has finished: {:?}", command);
         }
-       Commands::Databases { databaseoption } => {
-                 let command = databasedownload(*databaseoption).unwrap();
-                 println!("The command has been finished and all the files have been downloaded:{}", command);
-       }
+        Commands::Databases { databaseoption } => {
+            let command = databasedownload(*databaseoption).unwrap();
+            println!(
+                "The command has been finished and all the files have been downloaded:{}",
+                command
+            );
+        }
     }
 }

@@ -1,10 +1,9 @@
 use crate::hpoomim::hpoomimmap;
 use crate::medgenhpo::medgenhpomap;
+use crate::structfile::HPOOMIM;
 use crate::structfile::MedgenHPO;
 use crate::structfile::OMIMEvidence;
 use crate::structfile::OMIMEvidenceMerged;
-use crate::structfile::HPOOMIM;
-use rayon::prelude::*;
 use std::error::Error;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
@@ -17,7 +16,8 @@ ul. Noskowskiego 12/14 | 61-704, Poznań
 Date: 2025-7-23
 */
 
-pub fn omimevidence(
+#[tokio::main]
+pub async fn omimevidence(
     pathomim: &str,
     evidence: &str,
     medgenomim: &str,

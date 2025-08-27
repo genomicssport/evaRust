@@ -3,11 +3,10 @@ use crate::medgenhpo::medgenhpomap;
 use crate::structfile::ClinVar;
 use crate::structfile::ClinVarInfo;
 use crate::structfile::ClinVarOMIM;
+use crate::structfile::HPOOMIM;
 use crate::structfile::MedgenHPO;
 use crate::structfile::VCFAnnotate;
-use crate::structfile::HPOOMIM;
 use dotenv::dotenv;
-use rayon::prelude::*;
 use std::error::Error;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
@@ -20,7 +19,8 @@ ul. Noskowskiego 12/14 | 61-704, Poznań
 Date: 2025-7-23
 */
 
-pub fn clinvarvcf(vcffile: &str, clinvar: &str) -> Result<Vec<ClinVarOMIM>, Box<dyn Error>> {
+#[tokio::main]
+pub async fn clinvarvcf(vcffile: &str, clinvar: &str) -> Result<Vec<ClinVarOMIM>, Box<dyn Error>> {
     /*adding a dotenv for the other files(later will
     add for all the files so that it reads the
     databae automatically)

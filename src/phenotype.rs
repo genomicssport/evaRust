@@ -3,7 +3,6 @@ use crate::structfile::NCBIgene;
 use crate::structfile::Phenotype;
 use crate::structfile::PhenotypeHPOA;
 use crate::structfile::PhenotypeMerged;
-use rayon::prelude::*;
 use std::error::Error;
 use std::io::{BufRead, BufReader};
 
@@ -15,7 +14,8 @@ ul. Noskowskiego 12/14 | 61-704, Poznań
 Date: 2025-7-23
 */
 
-pub fn phenotypeall(
+#[tokio::main]
+pub async fn phenotypeall(
     genesdisease: &str,
     genesphenotype: &str,
     phenotypehpoa: &str,

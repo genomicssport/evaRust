@@ -8,8 +8,6 @@ use clap::{Parser, Subcommand};
       Gaurav Sablok, IBCH, PAN, Poznan, Poland,
       https://portal.ichb.pl/laboratory-of-genomics/.
       Email: gsablok@ibch.poznan.pl
-      Prof. Luiza Handschuh
-      Email: luizahan@ibch.poznan.pl.
       ************************************************"
 )]
 pub struct CommandParse {
