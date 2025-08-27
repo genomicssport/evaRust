@@ -24,6 +24,7 @@ use crate::ncbigeneid::ncbiannotate;
 use crate::omim::omimevidence;
 use crate::phenotype::phenotypeall;
 use clap::Parser;
+use figlet_rs::FIGfont;
 
 /*
 Author Gaurav Sablok
