@@ -1,6 +1,6 @@
 # evaRust
 
-- rust desktop client for human and mouse variant search.
+- rust desktop application for human and mouse variant search.
 - faster search indexes for variant for human genomics [Eva](https://www.ebi.ac.uk/eva/).
 
  Gaurav Sablok \
